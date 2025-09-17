@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Different browsers</title>
+</head>
+<body>
+    <header>
+        <h1>Different types of browsers </h1>
+              <h3> There are so many browsers to choose from how do I know I am using the best one?</h3>
+    </header>
+
+    <section id="Different browsers">
+        <h2>Different Browsers</h2>
+        <p>write data about choosing a browser</p>
+    </section>
+
+    <section id="Pros and Cons">
+        <h2>Pros and Cons of Different Browsers</h2>
+        <p>When choosing a browser, it's important to consider the pros and cons of each option.</p>
+
+       <table>
+  <tr>
+    <th>Brand</th>
+    <th>Pro</th>
+    <th>Con</th>
+  </tr>
+  <tr>
+    <td>Google Chrome</td>
+    <td>Microsoft Edge</td>
+    <td>Safari</td>
+  </tr>
+  <tr>
+    <td>put in pros here</td>
+    <td>...</td>
+    <td>her too</td>
+  </tr>
+  <tr>
+    <td>put in cons here</td>
+    <td>...</td>
+    <td>her too</td>
+  </tr>
+</table>
+    </section>
+</body>
+</html>
