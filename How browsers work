@@ -10,7 +10,20 @@
         <h1> How browsers work </h1>
               <h2> brief summery of how they work</h2>
 
-              
+        <h1>key concepts</h1>
+
+        <ul>
+            <li><strong>Rendering Engine:</strong> The component responsible for displaying web pages.</li>
+            <li><strong>JavaScript Engine:</strong> Executes JavaScript code on web pages.</li>
+            <li><strong>Network:</strong> Handles communication between the browser and web servers.</li>
+        </ul>
+
+        <h1>the future of browsers</h1>
+        <ul>
+            <li>Improved performance and speed</li>
+            <li>Enhanced security features</li>
+            <li>Better support for emerging web technologies</li>
+            <li>Increased focus on privacy and user control</li>
     </header>
     </body>
 </html>

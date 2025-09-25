@@ -10,5 +10,28 @@
         <h1> Browser timeline </h1>
               <h2> Browsers have came a long way since the start in 1993</h2>
     </header>
+
+    <browser timesline>
+  <tr>
+    <th>year</th>
+    <th>significance</th>
+    <th>key players</th>
+  </tr>
+  <tr>
+    <td>1993</td>
+    <td>First graphical web browser</td>
+    <td>ashly</td>
+  </tr>
+  <tr>
+    <td>put in pros here</td>
+    <td>...</td>
+    <td>her too</td>
+  </tr>
+  <tr>
+    <td>put in cons here</td>
+    <td>...</td>
+    <td>her too</td>
+  </tr>
+</table>
     </body>
 </html>
