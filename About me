@@ -7,8 +7,14 @@
 </head>
 <body>
     <header>
-        <h1> General info </h1>
-              <h2> </h2>
+        <h1> About Me</h1>
+
+        <img src="CS-96.jpg" alt="Picture of me" width="500" height="500">
+        <p> I am in the process of getting my bachalores degree and minor in IT. I am currently a technical writer and I enjoy my current position. Many cicumstances happened in my life that I had to put school on hold but I am back and stronger then ever.</p>
+        <p> I am a mother of 2 amazing kids. My daughter is almost 14 and my son would be 18 but he is forever 12 due to his fight with brain cancer.</p>
+        <p> I have many goals in life and I have learned you may never know where life will take you</p>
+        <p> When I graduate, I plan to continue in my current roll or possiblly look for a career that aims to help children and there families that are batteling illnesses.</p>
+
 
               
     </header>

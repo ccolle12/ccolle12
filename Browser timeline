@@ -11,27 +11,33 @@
               <h2> Browsers have came a long way since the start in 1993</h2>
     </header>
 
-    <browser timesline>
+    <table>
   <tr>
+    
     <th>year</th>
     <th>significance</th>
     <th>key players</th>
   </tr>
   <tr>
+    
+    <td>1990</td>
+    <td>Developed the first ever browser named “WorldWideWeb”, at CERN</td>
+    <td>Tim Berners-Lee</td>
+  </tr>
+  <tr>
     <td>1993</td>
     <td>First graphical web browser</td>
-    <td>ashly</td>
+    <td>NCSA</td>
   </tr>
   <tr>
-    <td>put in pros here</td>
-    <td>...</td>
-    <td>her too</td>
+    <td>1994</td>
+    <td>First web browser Nestscape became public</td>
+    <td>Marc Andreessen</td>
   </tr>
   <tr>
-    <td>put in cons here</td>
-    <td>...</td>
-    <td>her too</td>
-  </tr>
+    <td>1995</td>
+    <td>Microsoft released Internet Explorer. Beginning of the "Browser wars"</td>
+    <td>Microsoft</td>
 </table>
     </body>
 </html>
