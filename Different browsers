@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>Different types of browsers </h1>
-              <h3> There are so many browsers to choose from how do I know I am using the best one?</h3>
+              <h3> <p>There are so many browsers to choose from how do I know I am using the best one?</p></h3>
     </header>
 
     <section id="Different browsers">
@@ -21,6 +21,7 @@
         <h2>Pros and Cons of Different Browsers</h2>
         <p>When choosing a browser, it's important to consider the pros and cons of each option.</p>
 
+        <!--- pros and cons of different browsers need to add more data--->
        <table>
   <tr>
     <th>Brand</th>
