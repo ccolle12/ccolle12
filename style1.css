@@ -1,0 +1,43 @@
+.containerkeyterms {
+  display: flex;
+  background-color: lightskyblue;
+}
+
+.containerkeyterms div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 18px;
+}
+
+body {
+  background-color: lightgreen
+}
+
+h1 {
+  color: purple;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 300%;
+}
+p {
+  color:black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 120%;
+}
+
+h2 {
+  color: purple;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-size:145%;
+}
+p{
+  color:black;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-size:120%;
+}
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 12px;
+  text-align:center;
+}
