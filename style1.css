@@ -81,6 +81,7 @@ table, th, td {
   border-collapse: collapse;
   padding: 12px;
   text-align:center;
+  margin-top: 12px;
 }
 .references {
   background-color: lightgrey;
