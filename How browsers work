@@ -10,6 +10,20 @@
     <header>
         <h1> How browsers work </h1>
               <h2> brief summery of how they work</h2>
+
+              <div class="taskbar">
+                        <ul>
+
+                <li><a href="http://127.0.0.1:3000/index.html">Home</a></li>
+                <li><a href="http://127.0.0.1:3000/Different%20browsers">Different browsers</a></li>
+                <li><a href="http://127.0.0.1:3000/Browser%20timeline">Browser timeline</a></li>
+                
+                <li><a href="http://127.0.0.1:3000/Key%20concepts">Key concepts</a></li>
+                <li><a href="http://127.0.0.1:3000/About me">About me</a></li>
+                <li><a href="http://127.0.0.1:3000/References">References</a></li>
+            </ul>
+            
+        </div>
     </header>
 
         <h1>key concepts</h1>

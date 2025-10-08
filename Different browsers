@@ -10,6 +10,19 @@
     <header>
         <h1>Different types of browsers </h1>
               <h3> <p>There are so many browsers to choose from how do I know I am using the best one?</p></h3>
+              <div class="taskbar">
+                        <ul>
+
+                <li><a href="http://127.0.0.1:3000/index.html">Home</a></li>
+                
+                <li><a href="http://127.0.0.1:3000/Browser%20timeline">Browser timeline</a></li>
+                <li><a href="http://127.0.0.1:3000/How%20browsers%20work">How browsers work</a></li>
+                <li><a href="http://127.0.0.1:3000/Key%20concepts">Key concepts</a></li>
+                <li><a href="http://127.0.0.1:3000/About me">About me</a></li>
+                <li><a href="http://127.0.0.1:3000/References">References</a></li>
+            </ul>
+            
+        </div>
     </header>
 
     <section id="Different browsers">

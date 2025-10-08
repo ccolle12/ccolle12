@@ -9,13 +9,27 @@
 <body>
     <header>
     <h1> Key concepts </h1>
+
+    <div class="taskbar">
+                        <ul>
+
+                <li><a href="http://127.0.0.1:3000/index.html">Home</a></li>
+                <li><a href="http://127.0.0.1:3000/Different%20browsers">Different browsers</a></li>
+                <li><a href="http://127.0.0.1:3000/Browser%20timeline">Browser timeline</a></li>
+                <li><a href="http://127.0.0.1:3000/How%20browsers%20work">How browsers work</a></li>
+                
+            <li><a href="http://127.0.0.1:3000/About me">About me</a></li>
+                <li><a href="http://127.0.0.1:3000/References">References</a></li>
+            </ul>
+            
+        </div>
     </header>
          <h2> What is a web browser?</h2>
               <p>The web browser is an application software used to explore the World Wide Web (WWW).
                  It acts as a platform that allows users to access information from the Internet by 
                 serving as an interface between the client (user) and the server. The browser sends requests to servers for web 
                 documents and services, then renders the received HTML content, including text, images, links, styles, and scripts
-                 (https://www.geeksforgeeks.org/computer-networks/web-browser/).
+                 <a href="https://www.geeksforgeeks.org/computer-networks/web-browser/">GeeksforGeeks</a>.
 
 </p>
         

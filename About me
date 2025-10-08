@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About me</title>
 </head>
+<header>
+    <h1> About Me</h1>
+    <div class="taskbar">
+        <ul>
+            <li><a href="http://127.0.0.1:3000/index.html">Home</a></li>
+            <li><a href="http://127.0.0.1:3000/Different%20browsers">Different browsers</a></li>
+            <li><a href="http://127.0.0.1:3000/Browser%20timeline">Browser timeline</a></li>
+            <li><a href="http://127.0.0.1:3000/How%20browsers%20work">How browsers work</a></li>
+            <li><a href="http://127.0.0.1:3000/Key%20concepts">Key concepts</a></li>
+            
+            <li><a href="http://127.0.0.1:3000/References">References</a></li>
+        </ul>
+    </div>
+</header>
 <body>
     
-        <h1> About Me</h1>
+        
 <div class="about">
         <img src="CS-96.jpg" alt="Picture of me" width="500" height="500">
         <p> I am in the process of getting my bachalores degree and minor in IT. I am currently a technical writer and I enjoy my current position. Many cicumstances happened in my life that I had to put school on hold but I am back and stronger then ever.</p>
