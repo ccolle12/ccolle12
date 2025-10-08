@@ -9,6 +9,7 @@
 <body>
     <header>
     <h1> Key concepts </h1>
+    </header>
          <h2> What is a web browser?</h2>
               <p>The web browser is an application software used to explore the World Wide Web (WWW).
                  It acts as a platform that allows users to access information from the Internet by 
@@ -39,6 +40,6 @@
         <h2>What is cache?</h2>
         <p>refers to a storage mechanism that temporarily holds data to improve retrieval speed and efficiency. </p>
 
-    </header>
+    
     </body>
 </html>

@@ -10,6 +10,7 @@
     <header>
         <h1> References </h1>
               <h2><p>This is a list of references used in the development of this website.</p></h2>
+    </header>
 <!--- ask if buttons look good or should I remove them --->
               <ul>
                   <li><p>Hart, D. (2004, April 8). Mosaic Launches an Internet Revolution. US National Science Foundation.
@@ -36,6 +37,6 @@
                    <li><p>N. A. (2023, June 6). How and why you should delete your browser history. Microsoft. Retrieved September 11, 2025, from https://www.microsoft.com/en-us/edge/learning-center/how-why-you-should-delete-browser-history?msockid=0d3885736c5366d50b1693176d52673d&form=MA13I2</p></li>
                    <li><button onclick="location.href='https://www.microsoft.com/en-us/edge/learning-center/how-why-you-should-delete-browser-history?msockid=0d3885736c5366d50b1693176d52673d&form=MA13I2'">How and why you should delete your browser history</button></li>
               </ul>
-    </header>
+    
     </body>
 </html>
