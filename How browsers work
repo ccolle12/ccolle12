@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style1.css">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How browsers work</title>
 </head>
@@ -10,6 +10,7 @@
     <header>
         <h1> How browsers work </h1>
               <h2> brief summery of how they work</h2>
+    </header>
 
         <h1>key concepts</h1>
 
@@ -25,6 +26,6 @@
             <li>Enhanced security features</li>
             <li>Better support for emerging web technologies</li>
             <li>Increased focus on privacy and user control</li>
-    </header>
+    
     </body>
 </html>
