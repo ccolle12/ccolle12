@@ -13,6 +13,24 @@
   font-size: 18px;
 }
 
+.timeline-table {
+  display: flex;
+  background-color: rgb(176, 241, 176);
+  border: 2px ;
+  padding: 27px;
+  margin: 20px;
+  text-align: center;
+  color: darkblue;
+  text-shadow: 1px 1px 1px purple;
+}
+
+.timeline-table div {
+  background-color: #5e1599;
+  margin: 10px;
+  padding: 20px;
+  font-size: 18px;
+}
+
 .taskbar ul
 {
     margin:0;
@@ -128,4 +146,16 @@ ul {
 #hovercontent:hover {
   background-color: thistle;
   font-size: 20px;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#survey-questions {
+  background-color: lightyellow;
+  border: 2px ;
+  padding: 20px;
+  margin: 20px;
 }
