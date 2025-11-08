@@ -28,7 +28,28 @@
     <li><strong>Rendering Engine:</strong> The component responsible for displaying web pages.</li>
     <li><strong>JavaScript Engine:</strong> Executes JavaScript code on web pages.</li>
     <li><strong>Network:</strong> Handles communication between the browser and web servers.</li>
+    <li><strong>TCP:</strong> Establishes connections to web servers.</li>
+    <li><strong>Data Storage:</strong> Manages data storage mechanisms like cookies and local storage.</li>
+    <li><strong>Browser Engine:</strong> Coordinates actions between the UI and rendering engine.</li>
+    <li><strong>TCP handshake:</strong> Establishes a connection between the browser and web server.</li>
   </ul>
+
+  <h2>How browsers work-the process in general</h2>
+  <!-- image found from https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work -->
+      <p><img src="browser_process.jpg" alt="architecture process" width="650" height="200"></p>
+
+  <p>Browsers work by fetching web pages from the internet, parsing HTML and CSS, and rendering the content on the screen.</p>
+  <p>When the user enters a URL/IP address the browser then sends a request to the webserver that hosts the website.
+    <p>The webserver then responds with the requested web page, which the browser then parses and renders on the screen.</p>
+    <p> Through the use of HTML and CSS, the browser can display the content in a user-friendly way.</p>
+
+    <h3>How does the browser set up connection to the webserver?</h3>
+    <!-- image found from https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work -->
+    <p><img src="TCP_handshake.jpg" alt="TCP handshake" width="650" height="200"></p>
+    <p>The browser uses the Domain Name System (DNS) to resolve the domain name into an IP address, then establishes a TCP connection to the webserver on port 80 (HTTP) or 443 (HTTPS).</p>
+    <p>The TCP handshake is a process that establishes a connection between the browser and web server. In this process there are essentially 3 messages sent and recieved through the server and browser to establish a connection.
+      The first message is a SYN (synchronize) packet sent from the browser to the server, the second is a SYN-ACK (synchronize-acknowledge) packet sent from the server to the browser, and the third is an ACK (acknowledge) packet sent from the browser to the server.
+    (https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work)</p>
 
   <h2>The future of browsers</h2>
   <ul>
