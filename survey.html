@@ -34,7 +34,7 @@
     <section id="survey-questions">
         <h2>Survey Questions</h2>
 
-<form >
+<form id="survey-form">
             <label for="q1">1. What does HTML stand for?</label><br><br>
             <input type="radio" id="HyperText Markup Language" name="q1" value="HyperText Markup Language">
                 <label for="HyperText Markup Language">HyperText Markup Language</label><br><br>
@@ -86,7 +86,7 @@
             <input type="checkbox" id="feature2" name="feature2" value="security">
                 <label for="feature2">Security</label><br><br>
             <input type="checkbox" id="feature3" name="feature3" value="privacy">
-                <label for="feature3">compatibility</label><br><br>
+                <label for="feature3">Privacy</label><br><br>
             <input type="checkbox" id="feature4" name="feature4" value="color">
                 <label for="feature4">Color</label><br><br>
             <input type="checkbox" id="feature5" name="feature5" value="extensions">
@@ -113,4 +113,86 @@
                 <label for="They have not made any updates since 1993">They have not made any updates since 1993</label><br><br>
 
             <input type="submit" value="Submit">
+            <input type="button" id="clear-button" value="Clear">
         </form>
+
+        <div id="survey-result" aria-live="polite" style="margin-top:16px;font-weight:bold;"></div>
+
+        <script>
+        // Count correct answers 
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('survey-form');
+            const resultEl = document.getElementById('survey-result');
+
+            // my function
+            function radiobuttonAnswer(name) {
+                const answer = form.querySelector('input[name="' + name + '"]:checked');
+                return answer ? answer.value : null;
+            }
+
+            form.addEventListener('submit', function (ev) {
+                ev.preventDefault(); // don't reload the page
+
+                let AnsweredScore = 0;
+                const total = 7; // number of questions all together
+
+                
+                const q1 = radiobuttonAnswer('q1');
+                if (q1 === 'HyperText Markup Language') AnsweredScore++;
+
+                
+                const q2 = radiobuttonAnswer('q2');
+                if (q2 === 'Establishes a connection between the browser and web server') AnsweredScore++;
+
+                // added case sensativity code
+                const q3 = (document.getElementById('q3').value || '').trim().toLowerCase();
+                if (q3 === 'firefox') AnsweredScore++;
+
+                
+                const q4 = radiobuttonAnswer('q4');
+                if (q4 === '1990') AnsweredScore++;
+
+                // checkbox question for reference feature1, feature2, feature3 are correct
+                const correctFeature = ['feature1', 'feature2', 'feature3'];
+                const checkedFeatures = Array.from(form.querySelectorAll('input[type="checkbox"]'))
+                    .filter(cb => cb.checked)
+                    .map(cb => cb.id);
+                // correct checkboxes answered
+                const allCorrectSelected = correctFeature.every(id => checkedFeatures.includes(id));
+                const noExtras = checkedFeatures.every(id => correctFeature.includes(id));
+                if (allCorrectSelected && noExtras) AnsweredScore++;
+
+                
+                const q6 = (document.getElementById('q6').value || '').trim();
+                if (q6 === '1995') AnsweredScore++;
+
+                
+                const q7 = radiobuttonAnswer('q7');
+                if (q7 === 'Higher memory usage') AnsweredScore++;
+
+            // result on the page
+                
+                           
+
+                            if (AnsweredScore === total) {
+                                // show score, then a line break, then PASS message
+                                resultEl.innerHTML = 'Score: ' + AnsweredScore + ' / ' + total + '<br><strong>PASS!</strong> Great job! You answered all questions correctly';
+                            } else {
+                                // show score, then a line break, then fail message
+                                resultEl.innerHTML = 'Score: ' + AnsweredScore + ' / ' + total + '<br>Sorry you failed. Try again and maybe revisit the material to refresh your memory.';
+                            }
+            
+                        });
+
+            // Clear button 
+            const clearBtn = document.getElementById('clear-button');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function () {
+                    form.reset();
+                    resultEl.textContent = '';
+                    
+                });
+            }
+        });
+        
+        </script>
