@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey</title>
+    
 </head>
 <body>
     <header>
@@ -34,7 +35,7 @@
     <section id="survey-questions">
         <h2>Survey Questions</h2>
 
-<form id="survey-form">
+<form id="my_survey">
             <label for="q1">1. What does HTML stand for?</label><br><br>
             <input type="radio" id="HyperText Markup Language" name="q1" value="HyperText Markup Language">
                 <label for="HyperText Markup Language">HyperText Markup Language</label><br><br>
@@ -96,10 +97,10 @@
             <input type="checkbox" id="feature7" name="feature7" value="it has to be popular">
                 <label for="feature7">It Has To Be Popular</label><br><br>
 
-                            <label for="q6">2. What year was internet explorer released?</label><br>
+                            <label for="q6">6. What year was internet explorer released?</label><br>
             <input type="text" id="q6" name="q6"><br><br>
 
-            <label for="q7">4. What is a con of using Google Chrome?</label><br><br>
+            <label for="q7">7. What is a con of using Google Chrome?</label><br><br>
 
             <input type="radio" id="has many optional extensions" name="q7" value="has many optional extensions">
                 <label for="has many optional extensions">Has many optional extensions</label><br><br>
@@ -116,18 +117,36 @@
             <input type="button" id="clear-button" value="Clear">
         </form>
 
-        <div id="survey-result" aria-live="polite" style="margin-top:16px;font-weight:bold;"></div>
+        <div id="survey-result"></div>
 
         <script>
-        // Count correct answers 
+        // Count 
         document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('survey-form');
+            const form = document.getElementById('my_survey');
             const resultEl = document.getElementById('survey-result');
 
-            // my function
-            function radiobuttonAnswer(name) {
+            
+            function radioAnswer(name) {
                 const answer = form.querySelector('input[name="' + name + '"]:checked');
                 return answer ? answer.value : null;
+            }
+
+            
+            function result_texting(qid, state) {
+                const qLabel = document.querySelector('label[for="' + qid + '"]');
+                if (!qLabel) return;
+                qLabel.classList.remove('correct-label', 'incorrect-label');
+                if (state === 'correct') qLabel.classList.add('correct-label');
+                if (state === 'incorrect') qLabel.classList.add('incorrect-label');
+            }
+
+            //choice correct functions
+            function ChoiceId(inputId, state) {
+                const choiceLabel = document.querySelector('label[for="' + inputId + '"]');
+                if (!choiceLabel) return;
+                choiceLabel.classList.remove('choice-correct', 'choice-incorrect');
+                if (state === 'correct') choiceLabel.classList.add('choice-correct');
+                if (state === 'incorrect') choiceLabel.classList.add('choice-incorrect');
             }
 
             form.addEventListener('submit', function (ev) {
@@ -137,60 +156,160 @@
                 const total = 7; // number of questions all together
 
                 
-                const q1 = radiobuttonAnswer('q1');
-                if (q1 === 'HyperText Markup Language') AnsweredScore++;
+                // clear 
+                document.querySelectorAll('.choice-correct, .choice-incorrect').forEach(function (el) { el.classList.remove('choice-correct','choice-incorrect'); });
+
+                const q1 = radioAnswer('q1');
+                if (q1 === 'HyperText Markup Language')
+                { AnsweredScore++; result_texting('q1','correct'); 
+                ChoiceId(q1,'correct'); } 
+                else { result_texting('q1','incorrect');
+                if (q1) ChoiceId(q1,'incorrect'); }
 
                 
-                const q2 = radiobuttonAnswer('q2');
-                if (q2 === 'Establishes a connection between the browser and web server') AnsweredScore++;
-
-                // added case sensativity code
-                const q3 = (document.getElementById('q3').value || '').trim().toLowerCase();
-                if (q3 === 'firefox') AnsweredScore++;
+                const q2 = radioAnswer('q2');
+                if (q2 === 'Establishes a connection between the browser and web server')
+                { AnsweredScore++; result_texting('q2','correct');
+                 ChoiceId(q2,'correct'); }
+                 else { result_texting('q2','incorrect'); 
+                 if (q2) ChoiceId(q2,'incorrect'); }
 
                 
-                const q4 = radiobuttonAnswer('q4');
-                if (q4 === '1990') AnsweredScore++;
 
-                // checkbox question for reference feature1, feature2, feature3 are correct
+                
+                const q4 = radioAnswer('q4');
+                if (q4 === '1990') { AnsweredScore++; result_texting('q4','correct'); 
+                ChoiceId(q4,'correct'); } 
+                else { result_texting('q4','incorrect'); 
+                if (q4) 
+                ChoiceId(q4,'incorrect'); }
+
+                
                 const correctFeature = ['feature1', 'feature2', 'feature3'];
                 const checkedFeatures = Array.from(form.querySelectorAll('input[type="checkbox"]'))
                     .filter(cb => cb.checked)
                     .map(cb => cb.id);
-                // correct checkboxes answered
+
+                // correctanswered
                 const allCorrectSelected = correctFeature.every(id => checkedFeatures.includes(id));
                 const noExtras = checkedFeatures.every(id => correctFeature.includes(id));
-                if (allCorrectSelected && noExtras) AnsweredScore++;
+                if (allCorrectSelected && noExtras) { AnsweredScore++; result_texting('q5','correct'); }
+                else { result_texting('q5','incorrect'); }
+
+
+                // green if correct, red if incorrect
+                document.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+                    const id = cb.id;
+                    if (!cb.checked) return;
+                    if (correctFeature.includes(id)) ChoiceId(id,'correct'); else ChoiceId(id,'incorrect');
+                });
 
                 
                 const q6 = (document.getElementById('q6').value || '').trim();
-                if (q6 === '1995') AnsweredScore++;
+                if (q6 === '1995') { AnsweredScore++; result_texting('q6','correct'); } else { result_texting('q6','incorrect'); }
 
                 
-                const q7 = radiobuttonAnswer('q7');
-                if (q7 === 'Higher memory usage') AnsweredScore++;
+                const q7 = radioAnswer('q7');
+                if (q7 === 'Higher memory usage') { AnsweredScore++; result_texting('q7','correct'); ChoiceId(q7,'correct'); } else { result_texting('q7','incorrect'); if (q7) ChoiceId(q7,'incorrect'); }
 
-            // result on the page
-                
-                           
+            // result on page
 
-                            if (AnsweredScore === total) {
-                                // show score, then a line breakthen PASS message
-                                resultEl.innerHTML = 'Score: ' + AnsweredScore + ' / ' + total + '<br><strong>PASS!</strong> Great job! You answered all questions correctly';
+                const score = Math.round((AnsweredScore / total) * 100);
+                    document.getElementById('survey-result').innerHTML = `
+                      <div class="survey-result">
+                          <h3>Survey Results</h3>
+                                    <p>You scored ${score}% (${AnsweredScore} out of ${total} correct)</p>
+                                </div>
+                            `;
+
+                            // case
+                            const feedback = [];
+
+                            
+                            if (q1 === 'HyperText Markup Language') {
+                                feedback.push('Q1: Correct');
                             } else {
-                                // show score, then a line break, then fail message
-                                resultEl.innerHTML = 'Score: ' + AnsweredScore + ' / ' + total + '<br>Sorry you failed. Try again and maybe revisit the material to refresh your memory.';
+                                feedback.push('Q1: Incorrect — you answered: ' + (q1 || 'no answer') + '. Correct: HyperText Markup Language');
                             }
+
+                            
+                            if (q2 === 'Establishes a connection between the browser and web server') {
+                                feedback.push('Q2: Correct');
+                            } else {
+                                feedback.push('Q2: Incorrect — you answered: ' + (q2 || 'no answer') + '. Correct: Establishes a connection between the browser and web server');
+                            }
+
+                            
+                            if (q3 === 'firefox') {
+                                feedback.push('Q3: Correct');
+                            } else {
+                                feedback.push('Q3: Incorrect — you answered: "' + (q3 || 'no answer') + '". Correct: Firefox');
+                            }
+
+                            
+                            if (q4 === '1990') {
+                                feedback.push('Q4: Correct');
+                            } else {
+                                feedback.push('Q4: Incorrect — you answered: ' + (q4 || 'no answer') + '. Correct: 1990');
+                            }
+
+                            
+                            function labelText(id) {
+                                const lbl = document.querySelector('label[for="' + id + '"]');
+                                return lbl ? lbl.textContent.trim() : id;
+                            }
+                            const checkedLabels = checkedFeatures.map(id => labelText(id));
+                            const correctLabels = correctFeature.map(id => labelText(id));
+                            if (allCorrectSelected && noExtras) {
+                                feedback.push('Q5: Correct');
+                            } else {
+                                const missing = correctFeature.filter(id => !checkedFeatures.includes(id)).map(id => labelText(id));
+                                const extras = checkedFeatures.filter(id => !correctFeature.includes(id)).map(id => labelText(id));
+                                let msg = 'Q5: Incorrect — ';
+                                if (checkedLabels.length) msg += 'You chose: ' + checkedLabels.join(', ') + '. ';
+                                if (missing.length) msg += 'Missed: ' + missing.join(', ') + '. ';
+                                if (extras.length) msg += 'Not the best option: ' + extras.join(', ') + '. ';
+                                msg += 'Correct : ' + correctLabels.join(', ');
+                                feedback.push(msg);
+                            }
+
+                            // Q6
+                            if (q6 === '1995') {
+                                feedback.push('Q6: Correct');
+                            } else {
+                                feedback.push('Q6: Incorrect — you answered: ' + (q6 || 'no answer') + '. Correct: 1995');
+                            }
+
+                            // Q7
+                            if (q7 === 'Higher memory usage') {
+                                feedback.push('Q7: Correct');
+                            } else {
+                                feedback.push('Q7: Incorrect — you answered: ' + (q7 || 'no answer') + '. Correct: Higher memory usage');
+                            }
+
+                            // render PASS/FAIL banner, score + feedback (list)
+                            var passFailHTML = '';
+                            if (AnsweredScore === total) {
+                                passFailHTML = '<div class="pass-banner">PASS</div>';
+                            } else {
+                                passFailHTML = '<div class="fail-banner">FAIL</div>';
+                            }
+
+                            resultEl.innerHTML = passFailHTML + '<div>Score: ' + AnsweredScore + ' / ' + total + '</div>' +
+                                '<ul style="margin-top:8px">' + feedback.map(f => '<li>' + f + '</li>').join('') + '</ul>';
             
                         });
 
-            // Clear button 
+                // Clear button 
             const clearBtn = document.getElementById('clear-button');
             if (clearBtn) {
                 clearBtn.addEventListener('click', function () {
                     form.reset();
                     resultEl.textContent = '';
-                    
+                    // remove any label state classes
+                    document.querySelectorAll('.correct-label, .incorrect-label, .choice-correct, .choice-incorrect').forEach(function (el) {
+                        el.classList.remove('correct-label', 'incorrect-label', 'choice-correct', 'choice-incorrect');
+                    });
                 });
             }
         });

@@ -161,3 +161,43 @@ ul {
   text-align: left;
   color:blue;
 }
+
+ .correct-label { 
+     color: green;
+   }
+
+    .incorrect-label {
+      color: red;
+    }
+
+    .choice-correct {
+      color: green;
+      font-weight: 600;
+    }
+
+    .choice-incorrect {
+      color: red;
+    }
+
+    .pass-banner {
+      color: white;
+      background: green;
+      padding: 6px 10px;
+      display: inline-block;
+      border-radius: 4px;
+      margin-bottom:8px;
+    }
+
+    .fail-banner {
+      color: white;
+      background: red;
+      padding: 6px 10px;
+      display: inline-block;
+      border-radius: 4px;
+      margin-bottom:8px;
+    }
+    .survey-result {
+      font-size: 18px;
+      margin-top:16px;
+      font-weight:bold;
+    }
