@@ -294,13 +294,13 @@
             
                         });
 
-                // Clear button 
+                // Clear
             const clearBtn = document.getElementById('clear-button');
             if (clearBtn) {
                 clearBtn.addEventListener('click', function () {
                     form.reset();
                     resultTotal_survey.textContent = '';
-                    // remove any label state classes
+                    // remove green/red correct and incorrect info
                     document.querySelectorAll('.correct-label, .incorrect-label, .choice-correct, .choice-incorrect').forEach(function (el) {
                         el.classList.remove('correct-label', 'incorrect-label', 'choice-correct', 'choice-incorrect');
                     });
