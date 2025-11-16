@@ -123,7 +123,7 @@
         // Count 
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('my_survey');
-            const resultEl = document.getElementById('survey-result');
+            const resultTotal_survey = document.getElementById('survey-result');
 
             
             function radioAnswer(name) {
@@ -150,7 +150,7 @@
             }
 
             form.addEventListener('submit', function (ev) {
-                ev.preventDefault(); // don't reload the page
+                ev.preventDefault(); 
 
                 let AnsweredScore = 0;
                 const total = 7; // number of questions all together
@@ -212,15 +212,9 @@
                 const q7 = radioAnswer('q7');
                 if (q7 === 'Higher memory usage') { AnsweredScore++; result_texting('q7','correct'); ChoiceId(q7,'correct'); } else { result_texting('q7','incorrect'); if (q7) ChoiceId(q7,'incorrect'); }
 
-            // result on page
+            // result on page with correct answers
 
-                const score = Math.round((AnsweredScore / total) * 100);
-                    document.getElementById('survey-result').innerHTML = `
-                      <div class="survey-result">
-                          <h3>Survey Results</h3>
-                                    <p>You scored ${score}% (${AnsweredScore} out of ${total} correct)</p>
-                                </div>
-                            `;
+          
 
                             // case
                             const feedback = [];
@@ -266,10 +260,10 @@
                                 const missing = correctFeature.filter(id => !checkedFeatures.includes(id)).map(id => labelText(id));
                                 const extras = checkedFeatures.filter(id => !correctFeature.includes(id)).map(id => labelText(id));
                                 let msg = 'Q5: Incorrect — ';
-                                if (checkedLabels.length) msg += 'You chose: ' + checkedLabels.join(', ') + '. ';
-                                if (missing.length) msg += 'Missed: ' + missing.join(', ') + '. ';
+                                if (checkedLabels.length) msg += 'Your answers: ' + checkedLabels.join(', ') + '. ';
+                                if (missing.length) msg += 'incorrect: ' + missing.join(', ') + '. ';
                                 if (extras.length) msg += 'Not the best option: ' + extras.join(', ') + '. ';
-                                msg += 'Correct : ' + correctLabels.join(', ');
+                                msg += 'Correct answers: ' + correctLabels.join(', ');
                                 feedback.push(msg);
                             }
 
@@ -287,16 +281,16 @@
                                 feedback.push('Q7: Incorrect — you answered: ' + (q7 || 'no answer') + '. Correct: Higher memory usage');
                             }
 
-                            // render PASS/FAIL banner, score + feedback (list)
-                            var passFailHTML = '';
+                            // pass fail 
+                            var passFailText = '';
                             if (AnsweredScore === total) {
-                                passFailHTML = '<div class="pass-banner">PASS</div>';
+                                passFailText = 'PASS: Great job you answered all questions correct. Keep it up!';
                             } else {
-                                passFailHTML = '<div class="fail-banner">FAIL</div>';
+                                passFailText = 'FAIL: Dont give up go back and review the materials I know you got this!';
                             }
 
-                            resultEl.innerHTML = passFailHTML + '<div>Score: ' + AnsweredScore + ' / ' + total + '</div>' +
-                                '<ul style="margin-top:8px">' + feedback.map(f => '<li>' + f + '</li>').join('') + '</ul>';
+                            resultTotal_survey.innerHTML = passFailText + '<br><br><div>Score: ' + AnsweredScore + ' / ' + total + '</div><br>' +
+                                feedback.map(f => '<div>' + f + '</div>').join('');
             
                         });
 
@@ -305,7 +299,7 @@
             if (clearBtn) {
                 clearBtn.addEventListener('click', function () {
                     form.reset();
-                    resultEl.textContent = '';
+                    resultTotal_survey.textContent = '';
                     // remove any label state classes
                     document.querySelectorAll('.correct-label, .incorrect-label, .choice-correct, .choice-incorrect').forEach(function (el) {
                         el.classList.remove('correct-label', 'incorrect-label', 'choice-correct', 'choice-incorrect');
