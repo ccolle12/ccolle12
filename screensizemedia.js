@@ -3,12 +3,20 @@
     'use strict';
 
     
-    const BREAKPOINT = 768; 
+    const MOBILE_BREAKPOINT = 480;
+    const TABLET_BREAKPOINT = 768;
     let currentScreenType = null;
 
-    // Apply styles 
+    // Apply  
     function MediaQuery(width) {
-        let screenType = width < BREAKPOINT ? 'mobile' : 'desktop';
+        let screenType;
+        if (width < MOBILE_BREAKPOINT) {
+            screenType = 'mobile';
+        } else if (width < TABLET_BREAKPOINT) {
+            screenType = 'tablet';
+        } else {
+            screenType = 'desktop';
+        }
 
         // Only update if screen type changed
         if (currentScreenType === screenType) return;
@@ -17,11 +25,13 @@
 
         if (screenType === 'mobile') {
             phoneStyles();
+        } else if (screenType === 'tablet') {
+            tabletStyles();
         } else {
             computerStyles();
         }
 
-        console.log('Screen Type: ' + (screenType === 'mobile' ? 'Mobile (<768px)' : 'Desktop (≥768px)'));
+        console.log('Screen Type: ' + (screenType === 'mobile' ? 'Mobile (<480px)' : screenType === 'tablet' ? 'Tablet (480px-767px)' : 'Desktop (≥768px)'));
     }
 
     // phone styles and accessibility styles
@@ -126,6 +136,110 @@
         }
     }
 
+    // tablet styles
+    function tabletStyles() {
+        const body = document.body;
+        const form = document.getElementById('my_survey');
+        const resultDiv = document.getElementById('survey-result');
+        const img = document.querySelector('img[src="computers.jpg"]');
+        const h1 = document.querySelector('h1');
+        const h2 = document.querySelector('h2');
+        const inputs = document.querySelectorAll('input[type="text"], input[type="radio"], input[type="checkbox"]');
+        const buttons = document.querySelectorAll('input[type="submit"], input[type="button"]');
+        const labels = document.querySelectorAll('label');
+
+        // Body
+        body.style.fontSize = '14px';
+
+        // Image
+        if (img) {
+            img.style.maxWidth = '600px';
+            img.style.width = '100%';
+            img.style.height = 'auto';
+        }
+
+        // Header
+        if (h1) {
+            h1.style.fontSize = '160%';
+            h1.style.margin = '12px 0';
+        }
+        if (h2) {
+            h2.style.fontSize = '130%';
+            h2.style.margin = '12px 0';
+        }
+
+        // Form
+        if (form) {
+            form.style.padding = '15px';
+            form.style.maxWidth = '100%';
+        }
+
+        // Input sizes
+        inputs.forEach(input => {
+            input.style.padding = '7px';
+            input.style.fontSize = '14px';
+            input.style.marginRight = '7px';
+        });
+
+        // Buttons
+        buttons.forEach(button => {
+            button.style.display = 'inline-block';
+            button.style.width = 'auto';
+            button.style.padding = '10px 15px';
+            button.style.fontSize = '14px';
+            button.style.marginRight = '8px';
+            button.style.marginBottom = '5px';
+            button.style.cursor = 'pointer';
+            button.style.borderRadius = '4px';
+        });
+
+        // Labels
+        labels.forEach(label => {
+            label.style.fontSize = '14px';
+            label.style.lineHeight = '1.4';
+            label.style.display = 'inline';
+            label.style.marginBottom = '0';
+        });
+
+        // Result
+        if (resultDiv) {
+            resultDiv.style.fontSize = '14px';
+            resultDiv.style.marginTop = '20px';
+            resultDiv.style.padding = '12px';
+            resultDiv.style.backgroundColor = '#f9f9f9';
+            resultDiv.style.borderRadius = '4px';
+            resultDiv.style.wordWrap = 'break-word';
+            resultDiv.style.overflowWrap = 'break-word';
+        }
+
+        // Nav
+        const taskbar = document.querySelector('.taskbar');
+        if (taskbar) {
+            const ul = taskbar.querySelector('ul');
+            const lis = taskbar.querySelectorAll('li');
+            const as = taskbar.querySelectorAll('a');
+
+            if (ul) {
+                ul.style.padding = '8px';
+                ul.style.margin = '0';
+                ul.style.display = 'flex';
+                ul.style.flexWrap = 'wrap';
+            }
+
+            lis.forEach(li => {
+                li.style.display = 'inline-block';
+                li.style.margin = '2px 1px';
+                li.style.flex = '1 1 auto';
+            });
+
+            as.forEach(a => {
+                a.style.padding = '8px';
+                a.style.fontSize = '13px';
+                a.style.display = 'block';
+                a.style.textAlign = 'center';
+            });
+        }
+    }
     
     function computerStyles() {
         const body = document.body;
@@ -260,8 +374,11 @@
         return {
             currentScreenType: currentScreenType,
             windowWidth: window.innerWidth,
-            breakpoint: BREAKPOINT,
-            isMobile: currentScreenType === 'mobile'
+            mobileBreakpoint: MOBILE_BREAKPOINT,
+            tabletBreakpoint: TABLET_BREAKPOINT,
+            isMobile: currentScreenType === 'mobile',
+            isTablet: currentScreenType === 'tablet',
+            isDesktop: currentScreenType === 'desktop'
         };
     };
 
