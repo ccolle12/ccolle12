@@ -255,7 +255,7 @@
         // Body
         body.style.fontSize = '16px';
 
-        // Image 
+        // pic 
         if (img) {
             img.style.maxWidth = '700px';
             img.style.width = '100%';
@@ -382,6 +382,6 @@
         };
     };
 
-    // Start media query handler
+    // query handler
     start();
 })();
